@@ -120,3 +120,9 @@
   color: #0d1117;
   box-shadow: 0 0 25px #00e0ff;
 }
+
+.welcome-text {
+  color: #00ffcc;
+  font-weight: 600;
+  margin-right: 15px;
+}

@@ -169,12 +169,34 @@ export default function Home() {
       <canvas ref={canvasRef} className="background-canvas"></canvas>
 
       <header className="navbar">
-        <div className="logo">DSA Visualizer</div>
-        <div className="nav-buttons">
-          <Link to="/login" className="nav-btn">Login</Link>
-          <Link to="/register" className="nav-btn">Register</Link>
-        </div>
-      </header>
+  <div className="logo">DSA Visualizer</div>
+
+  <div className="nav-buttons">
+    {localStorage.getItem("token") ? (
+      <>
+        <span className="welcome-text">
+          ✅ Welcome, {localStorage.getItem("username")}
+        </span>
+        <button
+          onClick={() => {
+            localStorage.removeItem("token");
+            localStorage.removeItem("username");
+            window.location.reload(); // refresh to reset UI
+          }}
+          className="nav-btn"
+        >
+          Logout
+        </button>
+      </>
+    ) : (
+      <>
+        <Link to="/login" className="nav-btn">Login</Link>
+        <Link to="/register" className="nav-btn">Register</Link>
+      </>
+    )}
+  </div>
+</header>
+
 
       <main className="hero">
         <h1>Master DSA through Visualization</h1>

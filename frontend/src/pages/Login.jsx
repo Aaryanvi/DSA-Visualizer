@@ -175,10 +175,10 @@ export default function Login() {
       if (response.data && response.data.token) {
         // Save JWT token in localStorage
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("username", username);
         console.log("Login successful:", response.data);
 
-        // Redirect to notebook/dashboard page
-        navigate("/notebooks");
+        navigate("/");
       } else {
         setError("Invalid response from server.");
       }
