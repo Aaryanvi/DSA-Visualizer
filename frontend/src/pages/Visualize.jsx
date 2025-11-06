@@ -9,6 +9,7 @@ export default function Visualize() {
   const [value, setValue] = useState("");
   const [pseudocode, setPseudocode] = useState([]);
   const [highlightIndex, setHighlightIndex] = useState(null);
+  const [message, setMessage] = useState(""); // 🆕 feedback message
 
   const pseudocodeSnippets = {
     insert: [
@@ -38,13 +39,25 @@ export default function Visualize() {
 
   // ---------- INSERT ----------
   const handleInsert = () => {
-    if (!value) return;
+    if (!value) {
+      setMessage("⚠️ Please enter a node value!");
+      setTimeout(() => setMessage(""), 2000);
+      return;
+    }
+
     const newNode = { id: Date.now(), value };
     let newNodes = [...nodes];
 
     if (dataStructure === "linkedlist") {
       let pos = parseInt(position);
-      if (isNaN(pos) || pos < 0 || pos > newNodes.length) pos = newNodes.length;
+
+      // 🧩 Validate position
+      if (isNaN(pos) || pos < 0 || pos > newNodes.length) {
+        setMessage(`⚠️ Invalid position! Enter a value between 0 and ${newNodes.length}`);
+        setTimeout(() => setMessage(""), 2500);
+        return; // ❌ Stop insertion
+      }
+
       newNodes.splice(pos, 0, newNode);
       setPseudocode(pseudocodeSnippets.insert);
       setHighlightIndex(pos);
@@ -66,13 +79,22 @@ export default function Visualize() {
 
   // ---------- DELETE ----------
   const handleDelete = () => {
-    if (nodes.length === 0) return;
+    if (nodes.length === 0) {
+      setMessage("⚠️ No nodes to delete!");
+      setTimeout(() => setMessage(""), 2000);
+      return;
+    }
+
     let newNodes = [...nodes];
     let index = 0;
 
     if (dataStructure === "linkedlist") {
       let pos = parseInt(position);
-      if (isNaN(pos) || pos < 0 || pos >= newNodes.length) pos = newNodes.length - 1;
+      if (isNaN(pos) || pos < 0 || pos >= newNodes.length) {
+        setMessage(`⚠️ Invalid position! Enter between 0 and ${newNodes.length - 1}`);
+        setTimeout(() => setMessage(""), 2500);
+        return;
+      }
       newNodes.splice(pos, 1);
       index = pos;
       setPseudocode(pseudocodeSnippets.delete);
@@ -92,16 +114,19 @@ export default function Visualize() {
     setPosition("");
   };
 
-  // ---------- RESET ----------
   const handleReset = () => {
     setNodes([]);
     setPseudocode([]);
     setHighlightIndex(null);
+    setMessage("");
   };
 
   return (
     <div className="visualize-container">
       <h1 className="title">🔗 Data Structure Visualization</h1>
+
+      {/* 🧭 Feedback message */}
+      {message && <div className="message">{message}</div>}
 
       <div className="controls">
         <select value={dataStructure} onChange={(e) => setDataStructure(e.target.value)}>
@@ -139,6 +164,7 @@ export default function Visualize() {
         <button onClick={handleReset}>Reset</button>
       </div>
 
+      {/* Pseudocode display */}
       <div className="pseudocode-panel">
         <h3>Pseudocode</h3>
         <pre>
@@ -157,7 +183,7 @@ export default function Visualize() {
         </pre>
       </div>
 
-      {/* Visualization */}
+      {/* Visualization area */}
       <div
         className={`list-area ${
           dataStructure === "stack"

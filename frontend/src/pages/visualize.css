@@ -323,3 +323,20 @@
 .stack .node {
   margin-top: 5px;
 }
+
+.message {
+  background-color: #ffe5b4;
+  color: #d9534f;
+  font-weight: 600;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px auto;
+  width: fit-content;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
