@@ -203,7 +203,7 @@ export default function Home() {
         <p>Understand algorithms like never before — visualize, code, and learn efficiently.</p>
         <div className="hero-buttons">
           <Link to="/Visualize" className="primary-btn">Try Visualizer</Link>
-          <Link to="/NotebookPage" className="secondary-btn">Go to Notebook</Link>
+          <Link to="/notebooks" className="secondary-btn">Go to Notebook</Link>
           <Link to="/Practice" className="primary-btn">Practice DSA</Link>
         </div>
       </main>
