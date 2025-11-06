@@ -1,0 +1,145 @@
+.solve-page {
+  color: #e0f7fa;
+  background-color: #0a0a0f;
+  min-height: 100vh;
+  padding: 1.5rem 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.solve-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.solve-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 15px #00ffff;
+}
+
+.back-btn {
+  background: none;
+  border: 1px solid #00ffff;
+  color: #00ffff;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.back-btn:hover {
+  background: #00ffff;
+  color: #000;
+}
+
+.solve-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 1.5rem;
+}
+
+/* Left: Problem Section */
+.problem-section {
+  background: #111;
+  border: 1px solid #00ffff33;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00ffff33;
+}
+
+.problem-section h2 {
+  color: #00ffff;
+  margin-bottom: 0.5rem;
+}
+
+.example-box {
+  margin-top: 1rem;
+  background: #0d0d13;
+  border: 1px solid #00ffff33;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+/* Right: Editor Section */
+.editor-section {
+  background: #111;
+  border: 1px solid #00ffff33;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 15px #00ffff33;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #00ffff;
+  margin-bottom: 0.5rem;
+}
+
+.editor-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.run-btn,
+.submit-btn {
+  background: #00ffff;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.run-btn:hover {
+  background: #03e9f4;
+}
+
+.submit-btn {
+  background: #13ff9c;
+}
+.submit-btn:hover {
+  background: #00cc77;
+}
+
+.output-box {
+  background: #0c0c13;
+  border: 1px solid #00ffff33;
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-top: 1rem;
+}
+
+.output-box pre {
+  color: #00ffb7;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+.save-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.save-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.save-msg {
+  margin-top: 10px;
+  color: #2563eb;
+  font-weight: 500;
+}

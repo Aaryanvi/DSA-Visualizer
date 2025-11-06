@@ -1,0 +1,126 @@
+/* Container for the notebook page */
+.notebook-container {
+  background-color: #111827; /* Dark background for contrast */
+  padding: 40px;
+  min-height: 100vh;
+  color: #d1d5db; /* Light text for readability */
+}
+
+/* Heading Style */
+.notebook-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.notebook-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #60a5fa; /* Bright blue text */
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
+}
+
+/* Notebook Card */
+.notebook-card {
+  background-color: #1f2937; /* Dark background for cards */
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #374151;
+}
+
+.notebook-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.6);
+}
+
+.notebook-card h3 {
+  font-size: 1.25rem;
+  color: #60a5fa; /* Blue color for notebook titles */
+  margin-bottom: 8px;
+}
+
+.notebook-card p {
+  color: #9ca3af; /* Light grey text for content */
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.notebook-card .created-at {
+  font-size: 0.875rem;
+  color: #6b7280; /* Dim grey for created-at date */
+}
+
+/* Create New Notebook Section */
+.create-notebook {
+  background-color: #1f2937;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.create-notebook h3 {
+  font-size: 1.5rem;
+  color: #60a5fa;
+  margin-bottom: 20px;
+}
+
+.create-notebook input,
+.create-notebook textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  font-size: 1rem;
+  color: #d1d5db;
+  background-color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.create-notebook input:focus,
+.create-notebook textarea:focus {
+  outline: none;
+  border: 1px solid #60a5fa; /* Glowing blue border */
+}
+
+.create-notebook button {
+  background-color: #2563eb;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+}
+
+.create-notebook button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px); /* Slight hover effect */
+}
+
+.create-notebook button:active {
+  transform: translateY(0);
+}
+
+/* Save message */
+.save-msg {
+  color: #2563eb;
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .notebook-container {
+    padding: 10px;
+  }
+
+  .create-notebook {
+    padding: 20px;
+  }
+}

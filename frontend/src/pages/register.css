@@ -1,0 +1,123 @@
+/* Background styling */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle at top, #0a0a0a 0%, #020202 100%);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Floating neon dots animation (background effect) */
+.register-container::before,
+.register-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 255, 255, 0.15);
+  filter: blur(100px);
+  animation: floatGlow 8s ease-in-out infinite alternate;
+}
+.register-container::after {
+  background: rgba(0, 128, 255, 0.2);
+  top: auto;
+  bottom: 10%;
+  left: 70%;
+  animation-delay: 2s;
+}
+
+@keyframes floatGlow {
+  from {
+    transform: translateY(0px) translateX(0px);
+  }
+  to {
+    transform: translateY(-30px) translateX(30px);
+  }
+}
+
+/* Register box */
+.register-box {
+  background: rgba(15, 15, 15, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+  padding: 40px;
+  width: 400px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  transition: 0.3s ease-in-out;
+}
+.register-box:hover {
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.3);
+  transform: scale(1.02);
+}
+
+/* Title */
+.register-box h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+/* Input fields */
+.register-box input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.register-box input:focus {
+  border: 1px solid #00ffff;
+  box-shadow: 0 0 8px #00ffff;
+}
+
+/* Button */
+.register-box button {
+  background: #00ffff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-top: 15px;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.register-box button:hover {
+  background: #00bfff;
+  box-shadow: 0 0 15px #00bfff, 0 0 30px #00bfff;
+  transform: translateY(-2px);
+}
+
+/* Link */
+.link {
+  color: #00ffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.link:hover {
+  color: #00bfff;
+  text-shadow: 0 0 5px #00bfff;
+}
+
+/* Paragraph */
+.register-box p {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #aaa;
+}

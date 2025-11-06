@@ -1,0 +1,325 @@
+/* ---------- Container ---------- */
+.visualize-container {
+  position: relative;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0b132b, #1c2541);
+  color: white;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ---------- Floating Background Symbols ---------- */
+.floating-symbols span {
+  position: absolute;
+  color: rgba(0, 255, 255, 0.3);
+  font-size: 2rem;
+  animation: float 8s infinite ease-in-out;
+}
+
+.floating-symbols span:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.floating-symbols span:nth-child(2) { top: 40%; left: 70%; animation-delay: 2s; }
+.floating-symbols span:nth-child(3) { top: 60%; left: 30%; animation-delay: 4s; }
+.floating-symbols span:nth-child(4) { top: 80%; left: 80%; animation-delay: 6s; }
+.floating-symbols span:nth-child(5) { top: 30%; left: 50%; animation-delay: 1s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+}
+
+/* ---------- Title ---------- */
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px cyan;
+}
+
+/* ---------- Controls ---------- */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.controls select,
+.controls input {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid cyan;
+  background: transparent;
+  color: cyan;
+  font-weight: bold;
+  outline: none;
+}
+
+.controls button {
+  background: transparent;
+  border: 2px solid cyan;
+  color: cyan;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.controls button:hover {
+  background: cyan;
+  color: #0b132b;
+  box-shadow: 0 0 10px cyan;
+}
+
+/* ---------- Linked List / Queue / Stack Area ---------- */
+.list-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* ---------- Stack Vertical Layout ---------- */
+.list-area.stack {
+  flex-direction: column;
+}
+
+/* Start pointer */
+.start-pointer {
+  font-weight: bold;
+  color: yellow;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  text-shadow: 0 0 8px yellow;
+}
+
+/* Node wrapper */
+.node-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+/* Node styling */
+.node {
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid cyan;
+  border-radius: 10px;
+  padding: 15px 25px;
+  position: relative;
+  font-size: 1.2rem;
+  color: cyan;
+  box-shadow: 0 0 10px cyan;
+  transition: transform 0.3s ease;
+}
+
+.node:hover {
+  transform: scale(1.1);
+  background: rgba(0, 255, 255, 0.2);
+}
+
+/* Arrows */
+.arrow {
+  margin: 0 5px;
+  font-size: 1.5rem;
+  color: cyan;
+  text-shadow: 0 0 8px cyan;
+}
+
+/* Back arrow for doubly linked list */
+.back-arrow {
+  margin-right: 5px;
+  font-size: 1.2rem;
+  color: cyan;
+  text-shadow: 0 0 6px cyan;
+}
+
+/* Circular arrow back to start */
+.circular-arrow {
+  font-size: 1rem;
+  color: yellow;
+  margin-left: 10px;
+  font-weight: bold;
+  text-shadow: 0 0 6px yellow;
+}
+
+/* ---------- Animations for nodes ---------- */
+@keyframes node-pop {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.node {
+  animation: node-pop 0.3s ease;
+}
+
+/* ---------- Pseudocode Panel ---------- */
+.pseudocode-panel {
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid cyan;
+  border-radius: 12px;
+  padding: 15px 20px;
+  width: 320px;
+  margin-bottom: 30px;
+  color: cyan;
+  text-align: left;
+  box-shadow: 0 0 10px cyan;
+  animation: fadeIn 0.5s ease;
+}
+
+.pseudocode-panel h3 {
+  margin-bottom: 10px;
+  text-shadow: 0 0 6px cyan;
+}
+
+.code-line {
+  margin: 3px 0;
+  padding-left: 10px;
+  transition: background 0.3s ease;
+}
+
+.highlight-line {
+  background: rgba(0, 255, 255, 0.2);
+  border-left: 3px solid yellow;
+}
+
+/* ---------- Index / Labels ---------- */
+.index-label {
+  font-size: 0.9rem;
+  color: yellow;
+  text-align: center;
+  margin-top: 5px;
+  text-shadow: 0 0 6px yellow;
+}
+
+/* ---------- Highlight Animations ---------- */
+.highlight-node {
+  background: rgba(255, 255, 0, 0.2);
+  border-color: yellow;
+  box-shadow: 0 0 15px yellow;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- BST absolute layout & SVG edges ---------- */
+.bst-area {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  margin-top: 20px;
+  overflow-x: auto;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+.bst-svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* absolutely positioned node */
+.bst-node-abs {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+/* node circle look */
+.bst-value {
+  background: radial-gradient(circle at 30% 30%, #0ff, #06b3);
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #001b22;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+  border: 2px solid rgba(0, 255, 255, 0.9);
+}
+
+/* highlighted node override */
+.bst-node-abs.highlight-node .bst-value {
+  box-shadow: 0 0 20px yellow;
+  border-color: yellow;
+}
+
+/* responsive tweaks */
+@media (max-width: 700px) {
+  .bst-area { padding: 10px; }
+  .bst-node-abs { width: 48px; height: 48px; }
+  .bst-value { width: 48px; height: 48px; font-size: 0.9rem; }
+}
+
+.pointer {
+  position: absolute;
+  font-weight: bold;
+  color: #ffcc00;
+  text-align: center;
+  font-size: 14px;
+}
+
+.top-pointer {
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.front-pointer {
+  position: absolute;
+  top: -35px;
+  left: 0;
+  transform: translateX(-10%);
+  color: #00ffcc;
+}
+
+.rear-pointer {
+  position: absolute;
+  top: -35px;
+  right: 0;
+  transform: translateX(10%);
+  color: #00ffcc;
+}
+
+.queue,
+.stack {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.queue .node {
+  margin: 0 10px;
+}
+
+.stack {
+  flex-direction: column-reverse;
+}
+
+.stack .node {
+  margin-top: 5px;
+}
