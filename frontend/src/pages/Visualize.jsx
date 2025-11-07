@@ -9,7 +9,7 @@ export default function Visualize() {
   const [value, setValue] = useState("");
   const [pseudocode, setPseudocode] = useState([]);
   const [highlightIndex, setHighlightIndex] = useState(null);
-  const [message, setMessage] = useState(""); // 🆕 feedback message
+  const [message, setMessage] = useState("");
 
   const pseudocodeSnippets = {
     insert: [
@@ -51,11 +51,10 @@ export default function Visualize() {
     if (dataStructure === "linkedlist") {
       let pos = parseInt(position);
 
-      // 🧩 Validate position
       if (isNaN(pos) || pos < 0 || pos > newNodes.length) {
-        setMessage(`⚠️ Invalid position! Enter a value between 0 and ${newNodes.length}`);
+        setMessage(`⚠️ Invalid position! Enter 0 to ${newNodes.length}`);
         setTimeout(() => setMessage(""), 2500);
-        return; // ❌ Stop insertion
+        return;
       }
 
       newNodes.splice(pos, 0, newNode);
@@ -91,7 +90,7 @@ export default function Visualize() {
     if (dataStructure === "linkedlist") {
       let pos = parseInt(position);
       if (isNaN(pos) || pos < 0 || pos >= newNodes.length) {
-        setMessage(`⚠️ Invalid position! Enter between 0 and ${newNodes.length - 1}`);
+        setMessage(`⚠️ Invalid position! Enter 0 to ${newNodes.length - 1}`);
         setTimeout(() => setMessage(""), 2500);
         return;
       }
@@ -125,7 +124,6 @@ export default function Visualize() {
     <div className="visualize-container">
       <h1 className="title">🔗 Data Structure Visualization</h1>
 
-      {/* 🧭 Feedback message */}
       {message && <div className="message">{message}</div>}
 
       <div className="controls">
@@ -164,7 +162,6 @@ export default function Visualize() {
         <button onClick={handleReset}>Reset</button>
       </div>
 
-      {/* Pseudocode display */}
       <div className="pseudocode-panel">
         <h3>Pseudocode</h3>
         <pre>
@@ -210,16 +207,47 @@ export default function Visualize() {
           </>
         )}
 
-        {nodes.map((node, index) => (
-          <React.Fragment key={node.id}>
-            <div className={`node ${highlightIndex === index ? "highlight" : ""}`}>
-              {node.value}
-            </div>
-            {index < nodes.length - 1 && dataStructure === "linkedlist" && (
-              <span className="arrow">→</span>
+      {nodes.map((node, index) => (
+  <React.Fragment key={node.id}>
+    {dataStructure === "linkedlist" ? (
+      <>
+        {/* Doubly Linked List left arrow */}
+        {listType === "doubly" && index > 0 && (
+          <span className="arrow left-arrow">←</span>
+        )}
+
+        {/* Node */}
+        <div className={`node ${highlightIndex === index ? "highlight" : ""}`}>
+          {node.value}
+        </div>
+
+        {/* Singly or Doubly Linked List right arrows */}
+        {index < nodes.length - 1 && listType !== "circular" && (
+          <span className="arrow right-arrow">→</span>
+        )}
+
+        {/* Circular Linked List arrows */}
+        {listType === "circular" && (
+          <>
+            {/* Arrows between all nodes */}
+            {index < nodes.length - 1 && <span className="arrow circular-right">→</span>}
+
+            {/* Last node loops to head */}
+            {index === nodes.length - 1 && (
+              <span className="circular-connector">⤺ Head</span>
             )}
-          </React.Fragment>
-        ))}
+          </>
+        )}
+      </>
+    ) : (
+      // Stack or Queue
+      <div className={`node ${highlightIndex === index ? "highlight" : ""}`}>
+        {node.value}
+      </div>
+    )}
+  </React.Fragment>
+))}
+
       </div>
     </div>
   );

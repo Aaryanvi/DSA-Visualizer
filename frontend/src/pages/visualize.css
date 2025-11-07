@@ -142,14 +142,49 @@
   text-shadow: 0 0 6px cyan;
 }
 
-/* Circular arrow back to start */
-.circular-arrow {
-  font-size: 1rem;
-  color: yellow;
-  margin-left: 10px;
-  font-weight: bold;
-  text-shadow: 0 0 6px yellow;
+/* Circular linked list arrow styling */
+.circular-right {
+  color: #28a745;
+  font-size: 22px;
+  margin: 0 10px;
 }
+
+.circular-connector {
+  display: inline-block;
+  color: #00cc66;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 10px;
+  position: relative;
+  top: -5px;
+}
+
+/* Optional: Add an animation for smooth effect */
+.circular-connector::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -15px;
+  width: 60px;
+  height: 40px;
+  border: 2px dashed #00cc66;
+  border-radius: 50%;
+  transform: rotate(-20deg);
+  animation: loop 2s linear infinite;
+}
+
+@keyframes loop {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
 
 /* ---------- Animations for nodes ---------- */
 @keyframes node-pop {
@@ -214,65 +249,6 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- BST absolute layout & SVG edges ---------- */
-.bst-area {
-  position: relative;
-  width: 100%;
-  min-height: 420px;
-  margin-top: 20px;
-  overflow-x: auto;
-  padding: 20px 40px;
-  box-sizing: border-box;
-}
-
-.bst-svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-/* absolutely positioned node */
-.bst-node-abs {
-  position: absolute;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-}
-
-/* node circle look */
-.bst-value {
-  background: radial-gradient(circle at 30% 30%, #0ff, #06b3);
-  border-radius: 50%;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #001b22;
-  font-weight: 700;
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
-  border: 2px solid rgba(0, 255, 255, 0.9);
-}
-
-/* highlighted node override */
-.bst-node-abs.highlight-node .bst-value {
-  box-shadow: 0 0 20px yellow;
-  border-color: yellow;
-}
-
-/* responsive tweaks */
-@media (max-width: 700px) {
-  .bst-area { padding: 10px; }
-  .bst-node-abs { width: 48px; height: 48px; }
-  .bst-value { width: 48px; height: 48px; font-size: 0.9rem; }
-}
 
 .pointer {
   position: absolute;
